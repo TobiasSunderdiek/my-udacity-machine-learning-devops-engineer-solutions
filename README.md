@@ -1,4 +1,4 @@
-# my-udacity-machine-learning-devops-engineer-solutions
+# My Udacity Machine Learning DevOps Engineer Solutions
 
 Some of my solutions of the exercises and some of my projects of the Udacity Machine Learning DevOps Nanodegree https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821
 
