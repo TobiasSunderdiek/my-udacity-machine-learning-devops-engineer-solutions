@@ -10,4 +10,5 @@ def root():
 
 @app.post("/predict_salary")
 def predict_salary(person: Person):
-    model.inference
+    pass
+    #model.inference
