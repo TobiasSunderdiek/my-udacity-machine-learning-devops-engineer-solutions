@@ -16,6 +16,12 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Setup
 
-- `conda create -n project3 "python=3.8" scikit-learn pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge`
+- `conda create -n project3 "python=3.8" --file starter/requirements.txt -c conda-forge`
 
 - `conda activate project3`
+
+# Usage
+
+- run the tests with `pytest`
+
+- run `python starter/sanitycheck.py` for a check of functionality to meet course specifications

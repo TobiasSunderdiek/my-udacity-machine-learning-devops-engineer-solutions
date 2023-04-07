@@ -7,4 +7,3 @@ requests
 fastapi
 uvicorn
 httpx
-testclient
