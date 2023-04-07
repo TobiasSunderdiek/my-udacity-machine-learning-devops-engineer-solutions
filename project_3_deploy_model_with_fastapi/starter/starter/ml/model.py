@@ -1,4 +1,5 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.linear_model import LogisticRegression
 
 
 # Optional: implement hyperparameter tuning.

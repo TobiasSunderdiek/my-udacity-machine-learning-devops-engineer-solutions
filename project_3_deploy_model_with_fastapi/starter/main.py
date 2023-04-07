@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from dto.person import Person
 from starter.ml import model
+from joblib import load
 
 app = FastAPI()
+lr_model = load('data/lr_model.joblib')
 
 
 @app.get("/")
@@ -12,5 +14,4 @@ def root():
 
 @app.post("/predict_salary")
 def predict_salary(person: Person):
-    pass
-    #model.inference
+    model.inference(lr_model, person)
