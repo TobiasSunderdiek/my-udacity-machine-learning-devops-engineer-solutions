@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 class Person(BaseModel):
     age: int
     workclass: str
@@ -15,3 +16,4 @@ class Person(BaseModel):
     capital_loss: int = Field(None, alias='capital-loss')
     hours_per_week: int = Field(None, alias='hours_per_week')
     native_country: str = Field(None, alias='native-country')
+    
