@@ -1,5 +1,9 @@
 ## My solution to project 3 `Deploying a ML Model to Cloud Application Platform with FastAPI`
 
+# My github project
+
+If not viewing this on github, find my project here: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions
+
 # Starter code
 
 Udacity provides starter code for this project, which can be found here: https://github.com/udacity/nd0821-c3-starter-code
