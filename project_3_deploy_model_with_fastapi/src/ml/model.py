@@ -1,6 +1,9 @@
+import logging
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 
+
+logging.basicConfig(level=logging.DEBUG)
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -20,6 +23,7 @@ def train_model(X_train, y_train):
     """
     lr = LogisticRegression(max_iter=1000, random_state=42)
     lr.fit(X_train, y_train)
+    logging.info("Training model finished")
     return lr
 
 def compute_model_metrics(y, preds):
@@ -49,7 +53,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : LogisticRegression
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -58,4 +62,7 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    logging.info(f"Run model inference with input: {X}")
+    pred = model.predict(X)
+    logging.info(f"Prediction: {pred}")
+    return pred
