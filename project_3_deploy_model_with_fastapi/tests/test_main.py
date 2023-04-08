@@ -1,8 +1,9 @@
 from fastapi.testclient import TestClient
-from main import app
-from starter.dto.person import Person
+from src.main import app
+from src.dto.person import Person
 
 client = TestClient(app)
+
 
 def test_welcome_msg():
   resp = client.get('/')

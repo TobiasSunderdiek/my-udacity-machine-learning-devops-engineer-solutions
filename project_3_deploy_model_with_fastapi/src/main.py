@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from dto.person import Person
-from starter.ml import model
+from src.ml import model
 from joblib import load
 
 app = FastAPI()
