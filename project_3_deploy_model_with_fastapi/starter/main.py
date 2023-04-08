@@ -4,7 +4,7 @@ from starter.ml import model
 from joblib import load
 
 app = FastAPI()
-lr_model = load('starter/data/lr_model.joblib')
+lr_model = load('starter/model/lr_model.joblib')
 
 
 @app.get("/")
