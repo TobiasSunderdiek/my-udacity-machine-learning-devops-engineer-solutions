@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from dto.person import Person
-from src.ml import model
+from ml import model
 from joblib import load
 
 app = FastAPI()
-lr_model = load('starter/model/lr_model.joblib')
+lr_model = load('src/model/lr_model.joblib')
 
 
 @app.get("/")
