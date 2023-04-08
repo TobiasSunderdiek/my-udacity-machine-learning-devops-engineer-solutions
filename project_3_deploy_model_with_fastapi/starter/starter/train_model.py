@@ -28,9 +28,9 @@ X_test, y_test, _, _ = process_data(
     test, categorical_features=cat_features, label='salary', training=False, encoder=encoder, lb=lb)
 
 # Train and save a model.
-def train_model():
+def train_and_save_model():
     lr_model = train_model(X_train, y_train)
-    dump(lr_model, 'starter/data/lr_model.joblib')
+    dump(lr_model, 'starter/model/lr_model.joblib')
 
 if __name__ == '__main__':
-    train_model()
+    train_and_save_model()

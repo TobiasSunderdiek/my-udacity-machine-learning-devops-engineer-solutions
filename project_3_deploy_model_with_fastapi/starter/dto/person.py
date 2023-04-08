@@ -6,7 +6,7 @@ class Person(BaseModel):
     workclass: str
     fnlgt: int
     edcucation: str
-    education_num: int = Field(None, alias='education-num')
+    education_num: int = Field(alias='education-num')
     marital_status: str = Field(None, alias='marital_status')
     occupation: str
     relationship: str
