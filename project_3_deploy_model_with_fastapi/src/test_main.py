@@ -44,6 +44,6 @@ def test_greater_50k():
             'hours-per-week':45,
             'native-country':'United-States'}
 
-  resp = client.post('/predict_salary', data=person)
+  resp = client.post('/predict_salary', json=person)
   assert resp.status_code == 200
   assert resp.json() == '>50k'

@@ -1,4 +1,5 @@
 import logging
+import pandas as pd
 from fastapi import FastAPI
 from dto.person import Person
 from ml import model
@@ -6,7 +7,7 @@ from joblib import load
 from ml.train_model import CAT_FEATURES, MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
 from ml.data import process_data
 
-logging.basicConfig(level=DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 app = FastAPI()
 lr_model = load(MODEL_FILENAME)
 encoder = load(ENCODER_FILENAME)
@@ -20,6 +21,9 @@ async def root():
 
 @app.post("/predict_salary")
 async def predict_salary(person: Person):
-    input_data = process_data(person, CAT_FEATURES, label=None, training=False, encoder=encoder, lb=lb)
+    logging.info(f"API call to /predict_salary with {person}")
+    # convert person to pandas dataframe, credits to https://stackoverflow.com/a/17840195
+    person_df = pd.DataFrame(person.dict(by_alias=True), index=[0])
+    input_data = process_data(person_df, CAT_FEATURES, label=None, training=False, encoder=encoder, lb=lb)
     pred = model.inference(lr_model, input_data)
     return pred
