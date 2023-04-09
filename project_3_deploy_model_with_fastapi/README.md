@@ -24,6 +24,6 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - run the tests with `pytest` (or with logging: `pytest --log-cli-level=DEBUG`)
 
-- run `python starter/sanitycheck.py` for a check of functionality to meet course specifications
+- run `python src/sanitycheck.py` for a check of functionality to meet course specifications
 
-- run `python starter/starter/train_model.py ` to re-train the model (trained model is provided here: `starter/model`)
+- run `python src/ml/train_model.py ` to re-train the model (trained model is provided here: `src/model`)
