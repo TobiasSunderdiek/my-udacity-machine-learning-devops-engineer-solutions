@@ -28,4 +28,4 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - run `python src/sanitycheck.py` for a check of functionality to meet course specifications
 
-- run `python src/ml/train_model.py ` to re-train the model (trained model is provided here: `src/model`)
+- run `python src/ml/train_model.py` to re-train the model (trained model is provided here: `src/model`)

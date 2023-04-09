@@ -1,9 +1,17 @@
 import logging
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
+from joblib import dump
+from train_model import CAT_FEATURES
+from data import process_data
 
 
 logging.basicConfig(level=logging.DEBUG)
+
+SLICE_OUTPUT = 'slice_output.txt'
+MODEL_FILENAME = 'src/model/lr_model.joblib'
+ENCODER_FILENAME = 'src/model/encoder.joblib'
+LB_FILENAME = 'src/model/lb.joblib'
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -26,7 +34,25 @@ def train_model(X_train, y_train):
     logging.info("Training model finished")
     return lr
 
-def compute_model_metrics(y, preds):
+def overall_and_slice_metrics(model, y_test, y_pred, test_data, encoder, lb):
+    precision, recall, fbeta = _compute_model_metrics(y_test, y_pred)
+    logging.info(f"Overall metrics: Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
+
+    metrics = []
+    for cat in CAT_FEATURES:
+        for cat_variation in test_data[cat].unique():
+            logging.info(f"cat {cat}, cat_variation {cat_variation}")
+            slice_df = test_data[test_data[cat]==cat_variation]
+            X_slice, y_slice, _, _ = process_data(
+                slice_df, categorical_features=CAT_FEATURES, label='salary', training=False, encoder=encoder, lb=lb)
+            y_slice_pred = model.predict(X_slice)
+            precision, recall, fbeta = _compute_model_metrics(y_slice, y_slice_pred)
+            metrics.append(f"Category feature: {cat}, Category variation: {cat_variation}, Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
+    with open(SLICE_OUTPUT, 'w') as file:
+        file.write(metrics)
+    logging.info(f"Metrics written to {SLICE_OUTPUT}")
+
+def _compute_model_metrics(y, preds):
     """
     Validates the trained machine learning model using precision, recall, and F1.
 
@@ -47,7 +73,6 @@ def compute_model_metrics(y, preds):
     recall = recall_score(y, preds, zero_division=1)
     return precision, recall, fbeta
 
-
 def inference(model, X):
     """ Run model inferences and return the predictions.
 
@@ -65,3 +90,11 @@ def inference(model, X):
     logging.info(f"Run model inference with input: {X}")
     pred = model.predict(X)
     return pred
+
+def save_model(lr_model, encoder, lb):
+    dump(lr_model, MODEL_FILENAME)
+    logging.info(f"Model saved to file {MODEL_FILENAME}.")
+    dump(encoder, ENCODER_FILENAME)
+    logging.info(f"Encoder saved to {ENCODER_FILENAME}.")
+    dump(lb, LB_FILENAME)
+    logging.info(f"Label binarizer saved to {LB_FILENAME}")

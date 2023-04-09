@@ -3,8 +3,7 @@ import pandas as pd
 import logging
 from sklearn.model_selection import train_test_split
 from data import process_data
-from model import train_model, compute_model_metrics
-from joblib import dump
+from model import train_model, overall_and_slice_metrics, save_model
 
 logging.basicConfig(level=logging.DEBUG)
 data = pd.read_csv('src/data/census.csv')
@@ -22,9 +21,7 @@ CAT_FEATURES = [
     "sex",
     "native-country",
 ]
-MODEL_FILENAME = 'src/model/lr_model.joblib'
-ENCODER_FILENAME = 'src/model/encoder.joblib'
-LB_FILENAME = 'src/model/lb.joblib'
+
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=CAT_FEATURES, label="salary", training=True
 )
@@ -36,14 +33,8 @@ X_test, y_test, _, _ = process_data(
 def train_and_save_model():
     lr_model = train_model(X_train, y_train)
     y_pred = lr_model.predict(X_test)
-    precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
-    logging.info(f"Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
-    dump(lr_model, MODEL_FILENAME)
-    logging.info(f"Model saved to file {MODEL_FILENAME}.")
-    dump(encoder, ENCODER_FILENAME)
-    logging.info(f"Encoder saved to {ENCODER_FILENAME}.")
-    dump(lb, LB_FILENAME)
-    logging.info(f"Label binarizer saved to {LB_FILENAME}")
+    overall_and_slice_metrics(lr_model, y_test, y_pred, test, encoder, lb)
+    save_model(lr_model, encoder, lb)
 
 if __name__ == '__main__':
     train_and_save_model()
