@@ -22,6 +22,8 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Usage
 
+- `cd project_3_deploy_model_with_fastapi/`
+
 - run the tests with `pytest` (or with logging: `pytest --log-cli-level=DEBUG`)
 
 - run `python src/sanitycheck.py` for a check of functionality to meet course specifications
