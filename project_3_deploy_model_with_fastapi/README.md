@@ -22,7 +22,7 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Usage
 
-- run the tests with `pytest`
+- run the tests with `pytest` (or with logging: `pytest --log-cli-level=DEBUG`)
 
 - run `python starter/sanitycheck.py` for a check of functionality to meet course specifications
 

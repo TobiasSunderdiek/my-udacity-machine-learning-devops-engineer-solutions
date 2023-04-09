@@ -24,6 +24,6 @@ async def predict_salary(person: Person):
     logging.info(f"API call to /predict_salary with {person}")
     # convert person to pandas dataframe, credits to https://stackoverflow.com/a/17840195
     person_df = pd.DataFrame(person.dict(by_alias=True), index=[0])
-    input_data = process_data(person_df, CAT_FEATURES, label=None, training=False, encoder=encoder, lb=lb)
+    input_data, _, _, _ = process_data(person_df, CAT_FEATURES, label=None, training=False, encoder=encoder, lb=lb)
     pred = model.inference(lr_model, input_data)
     return pred

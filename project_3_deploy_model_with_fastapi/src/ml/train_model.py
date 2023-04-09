@@ -2,8 +2,8 @@
 import pandas as pd
 import logging
 from sklearn.model_selection import train_test_split
-from .data import process_data
-from .model import train_model
+from data import process_data
+from model import train_model
 from joblib import dump
 
 logging.basicConfig(level=logging.DEBUG)
