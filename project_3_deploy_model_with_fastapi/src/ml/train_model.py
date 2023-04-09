@@ -33,7 +33,7 @@ X_test, y_test, _, _ = process_data(
 def train_and_save_model():
     lr_model = train_model(X_train, y_train)
     y_pred = lr_model.predict(X_test)
-    overall_and_slice_metrics(lr_model, y_test, y_pred, test, encoder, lb)
+    overall_and_slice_metrics(CAT_FEATURES, lr_model, y_test, y_pred, test, encoder, lb)
     save_model(lr_model, encoder, lb)
 
 if __name__ == '__main__':

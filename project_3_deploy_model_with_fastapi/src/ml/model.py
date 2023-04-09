@@ -2,7 +2,6 @@ import logging
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from joblib import dump
-from train_model import CAT_FEATURES
 from data import process_data
 
 
@@ -34,17 +33,17 @@ def train_model(X_train, y_train):
     logging.info("Training model finished")
     return lr
 
-def overall_and_slice_metrics(model, y_test, y_pred, test_data, encoder, lb):
+def overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
     precision, recall, fbeta = _compute_model_metrics(y_test, y_pred)
     logging.info(f"Overall metrics: Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
 
     metrics = []
-    for cat in CAT_FEATURES:
+    for cat in cat_features:
         for cat_variation in test_data[cat].unique():
             logging.info(f"cat {cat}, cat_variation {cat_variation}")
             slice_df = test_data[test_data[cat]==cat_variation]
             X_slice, y_slice, _, _ = process_data(
-                slice_df, categorical_features=CAT_FEATURES, label='salary', training=False, encoder=encoder, lb=lb)
+                slice_df, categorical_features=cat_features, label='salary', training=False, encoder=encoder, lb=lb)
             y_slice_pred = model.predict(X_slice)
             precision, recall, fbeta = _compute_model_metrics(y_slice, y_slice_pred)
             metrics.append(f"Category feature: {cat}, Category variation: {cat_variation}, Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
