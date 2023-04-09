@@ -2,7 +2,7 @@ import logging
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from joblib import dump
-from data import process_data
+from .data import process_data
 
 
 logging.basicConfig(level=logging.DEBUG)
