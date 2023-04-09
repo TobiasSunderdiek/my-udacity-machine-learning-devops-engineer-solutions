@@ -7,7 +7,7 @@ from data import process_data
 
 logging.basicConfig(level=logging.DEBUG)
 
-SLICE_OUTPUT = 'slice_output.txt'
+SLICE_OUTPUT = 'src/model/slice_output.txt'
 MODEL_FILENAME = 'src/model/lr_model.joblib'
 ENCODER_FILENAME = 'src/model/encoder.joblib'
 LB_FILENAME = 'src/model/lb.joblib'
@@ -40,7 +40,7 @@ def overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, en
     metrics = []
     for cat in cat_features:
         for cat_variation in test_data[cat].unique():
-            logging.info(f"cat {cat}, cat_variation {cat_variation}")
+            logging.debug(f"cat {cat}, cat_variation {cat_variation}")
             slice_df = test_data[test_data[cat]==cat_variation]
             X_slice, y_slice, _, _ = process_data(
                 slice_df, categorical_features=cat_features, label='salary', training=False, encoder=encoder, lb=lb)
@@ -48,7 +48,7 @@ def overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, en
             precision, recall, fbeta = _compute_model_metrics(y_slice, y_slice_pred)
             metrics.append(f"Category feature: {cat}, Category variation: {cat_variation}, Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
     with open(SLICE_OUTPUT, 'w') as file:
-        file.write(metrics)
+        file.write('\n'.join(metrics)) # Credits to Ravikiran A S for transfering the list to a string, see here: https://www.simplilearn.com/tutorials/python-tutorial/list-to-string-in-python
     logging.info(f"Metrics written to {SLICE_OUTPUT}")
 
 def _compute_model_metrics(y, preds):
