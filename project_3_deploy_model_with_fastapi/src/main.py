@@ -26,4 +26,8 @@ async def predict_salary(person: Person):
     person_df = pd.DataFrame(person.dict(by_alias=True), index=[0])
     input_data, _, _, _ = process_data(person_df, CAT_FEATURES, label=None, training=False, encoder=encoder, lb=lb)
     pred = model.inference(lr_model, input_data)
-    return pred
+    pred_class = lb.inverse_transform(pred)[0]
+    logging.info(f"Prediction: {pred} class: {pred_class}")
+    resp = {'predicted_salary': pred_class}
+    logging.info(f"Response with {resp}")
+    return resp

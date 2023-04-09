@@ -64,5 +64,4 @@ def inference(model, X):
     """
     logging.info(f"Run model inference with input: {X}")
     pred = model.predict(X)
-    logging.info(f"Prediction: {pred}")
     return pred

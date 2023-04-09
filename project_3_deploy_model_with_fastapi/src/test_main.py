@@ -26,24 +26,24 @@ def test_lower_50k():
             'native-country':'United-States'}
   resp = client.post('/predict_salary', json=person)
   assert resp.status_code == 200
-  assert resp.json() == '<=50k'
+  assert resp.json() == {'predicted_salary': '<=50K'}
 
 def test_greater_50k():
-  person = {'age':52,
-            'workclass': 'Self-emp-not-inc',
-            'fnlgt':209642,
-            'education':'HS-grad',
-            'education-num':9,
-            'marital-status':'Married-civ-spouse',
-            'occupation':'Exec-managerial',
-            'relationship':'Husband',
+  person = {'age':31,
+            'workclass': 'Private',
+            'fnlgt':45781,
+            'education':'Masters',
+            'education-num':14,
+            'marital-status':'Never-married',
+            'occupation':'Prof-specialty',
+            'relationship':'Not-in-family',
             'race':'White',
-            'sex':'Male',
-            'capital-gain':0,
+            'sex':'Female',
+            'capital-gain':14084,
             'capital-loss':0,
-            'hours-per-week':45,
+            'hours-per-week':50,
             'native-country':'United-States'}
 
   resp = client.post('/predict_salary', json=person)
   assert resp.status_code == 200
-  assert resp.json() == '>50k'
+  assert resp.json() == {'predicted_salary': '>50K'}
