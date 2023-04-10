@@ -7,10 +7,10 @@ from .data import process_data
 
 logging.basicConfig(level=logging.DEBUG)
 
-SLICE_OUTPUT = 'src/model/slice_output.txt'
-MODEL_FILENAME = 'src/model/lr_model.joblib'
-ENCODER_FILENAME = 'src/model/encoder.joblib'
-LB_FILENAME = 'src/model/lb.joblib'
+SLICE_OUTPUT = 'project_3_deploy_model_with_fastapi/src/model/slice_output.txt'
+MODEL_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/lr_model.joblib'
+ENCODER_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/encoder.joblib'
+LB_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/lb.joblib'
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):

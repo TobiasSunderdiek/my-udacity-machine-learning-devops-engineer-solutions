@@ -2,11 +2,11 @@
 import pandas as pd
 import logging
 from sklearn.model_selection import train_test_split
-from data import process_data
-from model import train_model, overall_and_slice_metrics, save_model
+from ..ml.data import process_data
+from ..ml.model import train_model, overall_and_slice_metrics, save_model
 
 logging.basicConfig(level=logging.DEBUG)
-data = pd.read_csv('src/data/census.csv')
+data = pd.read_csv('project_3_deploy_model_with_fastapi/src/data/census.csv')
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20, stratify=data['salary'])
