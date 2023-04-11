@@ -16,8 +16,10 @@ The data is based on the census dataset from the UCI Machine Learning Repository
 
 Column names where stripped to remove whitespaces, in total there are 32561 rows with data and one header row.
 
-The data set is split by a 80-20 split to break it into a train and test set. Stratification was done one the target feature `salary`. To use the data during trainig, categorical features where encoded with a OneHotEncoder with parameters `parse=False` and `handle_unknown="ignore"`. The label is encoded with a LabelBinarizer with no parameters.
+The data set is split by a 80-20 split to break it into a train and test set. Stratification was done one the target feature `salary`. To use the data during trainig and testing, categorical features where encoded with a OneHotEncoder with parameters `parse=False` and `handle_unknown="ignore"`. The label is encoded with a LabelBinarizer with no parameters.
 ## Evaluation Data
+
+For evaluation, the same base dataset and the same data pre-processing steps where used as in `Training Data`. The only difference is the size of the resulting dataset, which is 20% of the whole dataset in case of evaluation.
 
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
