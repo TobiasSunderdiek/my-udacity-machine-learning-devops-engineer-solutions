@@ -8,10 +8,15 @@ Tobias Sunderdiek created the model. It is LogisticRegression from scikit-learn 
 
 ## Intended Use
 
-This model should be used to predict if the salary of a person is above or below 50K. It is trained on census data, and input is based on these features. The users are insurances.
+This model should be used to predict if the salary of a person is above or below 50K. It is trained on census bureau data, and input is based on these features. The users are insurances.
 
 ## Training Data
 
+The data is based on the census dataset from the UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/census+income).
+
+Column names where stripped to remove whitespaces, in total there are 32561 rows with data and one header row.
+
+The data set is split by a 80-20 split to break it into a train and test set. Stratification was done one the target feature `salary`. To use the data during trainig, categorical features where encoded with a OneHotEncoder with parameters `parse=False` and `handle_unknown="ignore"`. The label is encoded with a LabelBinarizer with no parameters.
 ## Evaluation Data
 
 ## Metrics

@@ -34,6 +34,8 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - run `uvicorn project_3_deploy_model_with_fastapi.src.main:app` to start REST-Endpoints locally on `http://127.0.0.1:8000`
 
+  - see docs here: `http://127.0.0.1:8000/docs`
+
 - to request app deployed on render or similar service
 
   - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi.src.check.request_render.py`
