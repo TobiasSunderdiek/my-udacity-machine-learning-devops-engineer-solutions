@@ -1,0 +1,2 @@
+Continues deployment is not done by every commit to github on render.com to only trigger builds, which pass the CI/CD pipeline first.
+Therefore the render deploy hook is used within the github actions, to trigger the deployment only when the pipeline has no errors.
