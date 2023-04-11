@@ -75,7 +75,7 @@ def calc_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
             precision, recall, fbeta = _compute_model_metrics(y_slice,
                                                               y_slice_pred)
             metrics.append(f"Category feature: {cat}, Category variation: {cat_variation}, Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
-    testfailwith open(SLICE_OUTPUT, 'w') as file:
+    testwith open(SLICE_OUTPUT, 'w') as file:
         # Credits to Ravikiran A S for
         # transfering the list to a string, see here:
         # https://www.simplilearn.com/tutorials/python-tutorial/list-to-string-in-python
