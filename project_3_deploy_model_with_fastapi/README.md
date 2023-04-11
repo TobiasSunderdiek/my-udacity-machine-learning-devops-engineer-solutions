@@ -24,9 +24,9 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 #####- `cd project_3_deploy_model_with_fastapi/`
 
-- run the tests with ` python -m pytest project_3_deploy_model_with_fastapi -vv` (or add: `--log-cli-level=DEBUG` for logging)
+- run the tests with `python -m pytest project_3_deploy_model_with_fastapi -vv` (add `--log-cli-level=DEBUG` for logging)
 
-- run `python -m project_3_deploy_model_with_fastapi.src.sanitycheck` with `project_3_deploy_model_with_fastapi/tests/test_main.py` as test file for a check of functionality to meet course specifications
+- run `python -m project_3_deploy_model_with_fastapi.src.sanitycheck` and answer path question with `project_3_deploy_model_with_fastapi/tests/test_main.py` as test file for a check of functionality to meet course specifications
 
 - run `python -m project_3_deploy_model_with_fastapi.src.ml.train_model`
 
