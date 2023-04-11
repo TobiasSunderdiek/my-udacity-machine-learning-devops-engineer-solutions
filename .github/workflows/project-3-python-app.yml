@@ -40,4 +40,4 @@ jobs:
       with:
         render_deploy_hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
       run: |
-        curl "$render_deploy_hook"
+        python -c "import requests;requests.get('$render_deploy_hook')"
