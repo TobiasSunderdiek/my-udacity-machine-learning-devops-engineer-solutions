@@ -33,7 +33,14 @@ def train_model(X_train, y_train):
     logging.info("Training model finished")
     return lr
 
-def overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
+def calc_overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
+    """
+    Calculates metrics of the model
+
+    Inputs
+    ------
+    cat_features: 
+    """
     precision, recall, fbeta = _compute_model_metrics(y_test, y_pred)
     logging.info(f"Overall metrics: Precision: {precision}, Recall: {recall}, Fbeta: {fbeta}")
 

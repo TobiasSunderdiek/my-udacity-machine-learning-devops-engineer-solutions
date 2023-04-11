@@ -22,14 +22,20 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Usage
 
-#####- `cd project_3_deploy_model_with_fastapi/`
-
 - run the tests with `python -m pytest project_3_deploy_model_with_fastapi -vv` (add `--log-cli-level=DEBUG` for logging)
 
-- run `python -m project_3_deploy_model_with_fastapi.src.sanitycheck` and answer path question with `project_3_deploy_model_with_fastapi/tests/test_main.py` as test file for a check of functionality to meet course specifications
+- run `python -m project_3_deploy_model_with_fastapi.src.check.sanitycheck` and answer path question with `project_3_deploy_model_with_fastapi/tests/test_main.py` as test file for a check of functionality to meet course specifications
 
 - run `python -m project_3_deploy_model_with_fastapi.src.ml.train_model`
 
   - to re-train and save the model (already trained model is provided here: `src/model/lr_model.joblib` with `encoder.joblib` and `lb.joblib`)
 
   - to re-calculate metrics in `src/model/slice_output.txt`
+
+- run `uvicorn project_3_deploy_model_with_fastapi.src.main:app` to start REST-Endpoints locally on `http://127.0.0.1:8000`
+
+- to request app deployed on render or similar service
+
+  - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi.src.check.request_render.py`
+
+  - run `python -m project_3_deploy_model_with_fastapi.src.check.request_render`
