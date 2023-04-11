@@ -39,3 +39,5 @@ License for this project: see Udacity License here: https://github.com/udacity/n
   - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi.src.check.request_render.py`
 
   - run `python -m project_3_deploy_model_with_fastapi.src.check.request_render`
+
+- run `flake8 project_3_deploy_model_with_fastapi/` to lint locally
