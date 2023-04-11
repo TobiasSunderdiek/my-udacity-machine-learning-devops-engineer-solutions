@@ -6,6 +6,7 @@ RENDER_APP_URL = 'https://predict-salary-fhxt.onrender.com'
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 def post_to_render():
     post_path = f"{RENDER_APP_URL}/predict_salary"
     person = "{\"age\":39,\
@@ -26,6 +27,7 @@ def post_to_render():
     res = requests.post(post_path, data=person)
     logging.info(f"Response status code: {res.status_code}")
     logging.info(f"Response msg: {res.json()}")
+
 
 if __name__ == '__main__':
     post_to_render()

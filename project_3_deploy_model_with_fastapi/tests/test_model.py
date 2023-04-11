@@ -1,6 +1,7 @@
-import numpy as np
 from unittest.mock import Mock, patch
-from project_3_deploy_model_with_fastapi.src.ml.model import train_model, inference, save_model, MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
+from project_3_deploy_model_with_fastapi.src.ml.model import train_model, \
+    inference, save_model, MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
+
 
 @patch('project_3_deploy_model_with_fastapi.src.ml.model.LogisticRegression')
 def test_train_model(MockLogisticRegression):
@@ -11,12 +12,14 @@ def test_train_model(MockLogisticRegression):
     lr_model_mock.fit.assert_called_with(X_mock, y_mock)
     assert model is lr_model_mock
 
+
 def test_inference():
     model_mock = Mock()
     X_mock = Mock()
     pred = inference(model_mock, X_mock)
     assert pred is not None
     model_mock.predict.assert_called_with(X_mock)
+
 
 @patch('project_3_deploy_model_with_fastapi.src.ml.model.dump')
 def test_save_model(dump_func_mock):
