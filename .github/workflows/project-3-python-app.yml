@@ -36,3 +36,8 @@ jobs:
     - name: Test with pytest in project 3
       run: |
         python -m pytest project_3_deploy_model_with_fastapi -vv
+    - name: Deploy on Render.com
+      with:
+        render_deploy_hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      run: |
+        curl "$render_deploy_hook"

@@ -27,7 +27,15 @@ The overall metrics of the model are Precision with 0.7297, Recall with 0.2755 a
 
 ## Ethical Considerations
 
+equal opportunity
+`sex`, `native-country`, `race`, 
 
 
 ## Caveats and Recommendations
 very small dataset, few samples
+range from 0.0 to 1.0
+1st-4th, Precision: 0.0, Recall: 0.0, Fbeta: 0.0
+12th, Precision: 0.25, Recall: 0.14285714285714285, Fbeta: 0.18181818181818182
+Category feature: native-country, Category variation: Hungary, Precision: 1.0, Recall: 1.0, Fbeta: 1.0
+
+Laos -> 2/18 >50K examples

@@ -44,6 +44,22 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - run `flake8 project_3_deploy_model_with_fastapi/` to lint locally
 
+# Deploy on Render.com
+
+- deploy repository as `Web Service` with specific configuration:
+
+  - Repository: `https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions`
+
+  - Branch: `main`
+
+  - Build Command: `pip install -r project_3_deploy_model_with_fastapi/requirements.txt`
+
+  - Start Command: `uvicorn project_3_deploy_model_with_fastapi.src.main:app --host 0.0.0.0 --port 10000`
+
+  - Auto-Deploy: `No` (deployment is triggered via github actions and render deploy hook)
+
+- configure github actions secret `RENDER_DEPLOY_HOOK` with deploy hook url from render
+
 # Model
 
 See model card for more details: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/blob/main/project_3_deploy_model_with_fastapi/model_card.md
