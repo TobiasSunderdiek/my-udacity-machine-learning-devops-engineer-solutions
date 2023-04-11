@@ -23,6 +23,7 @@ For evaluation, the same base dataset and the same data pre-processing steps whe
 
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
+Overall metrics: Precision: 0.7297297297297297,                  Recall: 0.2755102040816326, Fbeta: 0.3999999999999999
 
 ## Ethical Considerations
 

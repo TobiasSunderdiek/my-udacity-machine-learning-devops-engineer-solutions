@@ -16,7 +16,7 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Setup
 
-- `conda create -n project3 "python=3.8" --file starter/requirements.txt -c conda-forge`
+- `conda create -n project3 "python=3.8" --file project_3_deploy_model_with_fastapi/requirements.txt -c conda-forge` in root of repository
 
 - `conda activate project3`
 
@@ -28,9 +28,9 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - run `python -m project_3_deploy_model_with_fastapi.src.ml.train_model`
 
-  - to re-train and save the model (already trained model is provided here: `src/model/lr_model.joblib` with `encoder.joblib` and `lb.joblib`)
+  - to re-train and save the model (already trained model is provided here: `project_3_deploy_model_with_fastapi/src/model/lr_model.joblib` with `encoder.joblib` and `lb.joblib`)
 
-  - to re-calculate metrics in `src/model/slice_output.txt`
+  - to re-calculate metrics in `project_3_deploy_model_with_fastapi/src/model/slice_output.txt`
 
 - run `uvicorn project_3_deploy_model_with_fastapi.src.main:app` to start REST-Endpoints locally on `http://127.0.0.1:8000`
 
@@ -38,7 +38,7 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - to request app deployed on render or similar service
 
-  - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi.src.check.request_render.py`
+  - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi/src/check/request_render.py`
 
   - run `python -m project_3_deploy_model_with_fastapi.src.check.request_render`
 
