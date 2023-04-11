@@ -3,7 +3,7 @@ import pandas as pd
 import logging
 from sklearn.model_selection import train_test_split
 from ..ml.data import process_data
-from ..ml.model import train_model, calc_overall_and_slice_metrics, save_model
+from ..ml.model import train_model, calc_metrics, save_model
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -45,8 +45,7 @@ def train_and_save_model():
 
     # save model and metrics
     y_pred = lr_model.predict(X_test)
-    calc_overall_and_slice_metrics(CAT_FEATURES,
-                                   lr_model, y_test, y_pred, test, encoder, lb)
+    calc_metrics(CAT_FEATURES, lr_model, y_test, y_pred, test, encoder, lb)
     save_model(lr_model, encoder, lb)
 
 

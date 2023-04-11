@@ -12,6 +12,7 @@ MODEL_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/lr_model.joblib'
 ENCODER_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/encoder.joblib'
 LB_FILENAME = 'project_3_deploy_model_with_fastapi/src/model/lb.joblib'
 
+
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
     """
@@ -33,7 +34,8 @@ def train_model(X_train, y_train):
     logging.info("Training model finished")
     return lr
 
-def calc_overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
+
+def calc_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
     """
     Calculates metrics of the model
 
