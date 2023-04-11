@@ -52,9 +52,12 @@ def calc_metrics(cat_features, model, y_test, y_pred, test_data, encoder, lb):
     test_data : pd.DataFrame
         Test data.
     encoder : sklearn.preprocessing.OneHotEncoder
-        Encode values of category features.
+        Fitted encoder for values of category features.
     lb : sklearn.preprocessing.LabelBinarizer
-        Encode values of labels.
+        Fitted label binarizer.
+    Returns
+    -------
+    None
     """
     precision, recall, fbeta = _compute_model_metrics(y_test, y_pred)
     logging.info(f"Overall metrics: Precision: {precision}, \
@@ -126,6 +129,20 @@ def inference(model, X):
 
 
 def save_model(lr_model, encoder, lb):
+    """ Save model/encoder/label binarizer to file.
+
+    Inputs
+    ------
+    lr_model : sklearn.linear_model.LogisticRegression
+        Trained model.
+    encoder : sklearn.preprocessing.OneHotEncoder
+        Fitted encoder for values of category features.
+    lb : sklearn.preprocessing.LabelBinarizer
+        Fitted label binarizer.
+    Returns
+    -------
+    None
+    """
     dump(lr_model, MODEL_FILENAME)
     logging.info(f"Model saved to file {MODEL_FILENAME}.")
     dump(encoder, ENCODER_FILENAME)
