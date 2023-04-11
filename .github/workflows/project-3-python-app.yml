@@ -23,7 +23,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.8"
-        render_deploy_hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
     - name: Install dependencies of project 3
       run: |
         python -m pip install --upgrade pip
@@ -38,5 +37,7 @@ jobs:
       run: |
         python -m pytest project_3_deploy_model_with_fastapi -vv
     - name: Deploy on Render.com
+      env:
+        render_deploy_hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
       run: |
         python -c "import requests;requests.get('$render_deploy_hook')"
