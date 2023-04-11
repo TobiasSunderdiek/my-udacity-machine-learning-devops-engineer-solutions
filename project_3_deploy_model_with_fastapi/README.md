@@ -2,7 +2,7 @@
 
 # My github project
 
-If not viewing this on github, find my project here: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions
+If not viewing this on github, find my project here: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/tree/main/project_3_deploy_model_with_fastapi
 
 # Starter code
 
@@ -41,3 +41,7 @@ License for this project: see Udacity License here: https://github.com/udacity/n
   - run `python -m project_3_deploy_model_with_fastapi.src.check.request_render`
 
 - run `flake8 project_3_deploy_model_with_fastapi/` to lint locally
+
+# Model
+
+See model card for more details: 
