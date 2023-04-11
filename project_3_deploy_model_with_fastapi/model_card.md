@@ -8,6 +8,8 @@ Tobias Sunderdiek created the model. It is LogisticRegression from scikit-learn 
 
 ## Intended Use
 
+This model should be used to predict if the salary of a person is above or below 50K. It is trained on census data, and input is based on these features. The users are insurances.
+
 ## Training Data
 
 ## Evaluation Data

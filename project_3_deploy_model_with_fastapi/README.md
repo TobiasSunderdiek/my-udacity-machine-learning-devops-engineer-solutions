@@ -44,4 +44,4 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 # Model
 
-See model card for more details: 
+See model card for more details: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/blob/main/project_3_deploy_model_with_fastapi/model_card.md
