@@ -22,10 +22,12 @@ The data set is split by a 80-20 split to break it into a train and test set. St
 For evaluation, the same base dataset and the same data pre-processing steps where used as in `Training Data`. The only difference is the size of the resulting dataset, which is 20% of the whole dataset in case of evaluation.
 
 ## Metrics
-_Please include the metrics used and your model's performance on those metrics._
-Overall metrics: Precision: 0.7297297297297297,                  Recall: 0.2755102040816326, Fbeta: 0.3999999999999999
+
+The overall metrics of the model are Precision with 0.7297, Recall with 0.2755 and Fbeta with 0.3999.
 
 ## Ethical Considerations
+
+
 
 ## Caveats and Recommendations
 very small dataset, few samples
