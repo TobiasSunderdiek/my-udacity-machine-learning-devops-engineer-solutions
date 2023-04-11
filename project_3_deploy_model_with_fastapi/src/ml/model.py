@@ -41,14 +41,18 @@ def calc_overall_and_slice_metrics(cat_features, model, y_test, y_pred, test_dat
     ------
     cat_features : list
         List of categorical feature names.
-    model : LogisticRegression
+    model : sklearn.linear_model.LogisticRegression
         Trained model.
     y_test : np.array
         Labels.
     y_pred : np.array
         Predicted Labels.
-    test_data : np.array
+    test_data : pd.DataFrame
         Test data.
+    encoder : sklearn.preprocessing.OneHotEncoder
+        Encode values of category features.
+    lb : sklearn.preprocessing.LabelBinarizer
+        Encode values of labels.
     """
     precision, recall, fbeta = _compute_model_metrics(y_test, y_pred)
     logging.info(f"Overall metrics: Precision: {precision}, \
