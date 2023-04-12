@@ -8,7 +8,7 @@ Please respect the Udacity Honor Code: https://www.udacity.com/legal/en-eu/honor
 
 # My github project
 
-If not viewing this on github, please find
+If not viewing this on github, find
 
 - my project 2 solution here: https://github.com/TobiasSunderdiek/my-solution-for-udacity-build-ml-pipeline-for-short-term-rental-prices
 
