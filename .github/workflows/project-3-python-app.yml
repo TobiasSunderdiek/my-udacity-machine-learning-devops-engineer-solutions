@@ -9,8 +9,8 @@ on:
       - 'project_3_deploy_model_with_fastapi/**'
       - '!project_2_short_term_rental_prices/**'
       - '!.github/workflows/**'
-      - 'LICENSE'
-      - 'README.md'
+      - '!LICENSE'
+      - '!README.md'
 
 permissions:
   contents: read
