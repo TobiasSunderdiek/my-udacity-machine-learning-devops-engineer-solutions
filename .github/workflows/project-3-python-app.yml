@@ -39,8 +39,3 @@ jobs:
     - name: Test with pytest in project 3
       run: |
         python -m pytest project_3_deploy_model_with_fastapi -vv
-    - name: Deploy on Render.com
-      env:
-        render_deploy_hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
-      run: |
-        python -c "import requests;requests.get('$render_deploy_hook')"
