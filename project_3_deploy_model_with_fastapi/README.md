@@ -60,6 +60,8 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 
 - configure github actions secret `RENDER_DEPLOY_HOOK` with deploy hook url from render
 
+- run `Manual deploy` - `Clear build & cache deploy` for one deployment
+
 # Model
 
 See model card for more details: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/blob/main/project_3_deploy_model_with_fastapi/model_card.md
