@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 
-classtestfailure Person(BaseModel):
+class Person(BaseModel):
     age: int
     workclass: str
     fnlgt: int
