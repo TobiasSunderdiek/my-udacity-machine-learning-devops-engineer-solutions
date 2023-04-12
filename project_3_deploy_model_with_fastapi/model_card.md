@@ -27,7 +27,7 @@ The overall metrics of the model are Precision with 0.7297, Recall with 0.2755 a
 
 ## Ethical Considerations
 
-The dataset includes and the model is trained on features like e.g. `sex`, `native-country`, `race`. These features should not be included in a decision in which equal opportunity is desired because they may bias the user and lead to unfair decisions. These features should also be excluded from the model to try not to train historical bias mapped from the data into the model.
+The dataset includes, and the model is trained on features like e.g. `sex`, `native-country`, `race`. These features should not be included in a decision in which equal opportunity is desired because they may bias the decision maker and may lead to unfair decisions. Therefore, these features should also be excluded from the model, to try to avoid bias.
 
 ## Caveats and Recommendations
 The values of the metrics for some of the slices range from 0.0 (e.g. `education: 1st-4th`) to 1.0 (e.g. `native-country: Hungary`) or nearly in-between (e.g. `education: 12th`) and differ a lot from the overall metrics. The dataset is unbalanced for different features. E.g., only 18 datapoints with `native-country` Laos exists, from which only 2 have a `salary` >50K. 
