@@ -5,9 +5,9 @@ name: Python application for project 3
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths:
+      - 'project_3_deploy_model_with_fastapi/**'
+      - '!project_2_short_term_rental_prices/**'
 
 permissions:
   contents: read

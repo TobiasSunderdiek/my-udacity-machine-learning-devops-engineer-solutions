@@ -65,3 +65,13 @@ License for this project: see Udacity License here: https://github.com/udacity/n
 # Model
 
 See model card for more details: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/blob/main/project_3_deploy_model_with_fastapi/model_card.md
+
+# GithubActions
+
+- only if changes are made within this project 3, github actions are called
+
+    - with one exception: if a tag is pushed, github actions are also called
+
+- continuous deployment is configured via github actions
+
+    - if all tests pass and linting has no blocking errors, a render deploy hook is executed and triggers the deployment from the github actions pipeline
